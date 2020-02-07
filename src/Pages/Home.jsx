@@ -29,6 +29,7 @@ const Home = () => {
         }}
         animate={{ scale: 1 }}
         transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
       >
         <StyledLink to="/services">
           <img src="/assets/icons/x.png" alt="X" />
