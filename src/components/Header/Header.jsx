@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
 display: flex;
-justify-content: flex-end;
+justify-content: space-between;
 align-items: center;
 padding: 0 50px;
 height: 100px;
@@ -13,9 +13,10 @@ height: auto;
 }
 `;
 
-const Header = () => {
+const Header = ({ displayLogo }) => {
   return (
     <StyledHeader>
+      { displayLogo && <img src="/assets/icons/lambda.png" alt="Logo" /> }
       <img src="/assets/icons/square.png" alt="menu" />
     </StyledHeader>
   );

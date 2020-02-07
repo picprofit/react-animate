@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './styles/style.scss';
-import App from './components/App';
+import App from './App';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <Route component={App} />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
