@@ -9,6 +9,9 @@ const StyledServices = styled.section`
   justify-content: space-around;
   width: 1000px;
   max-width: 100%;
+  & > a:last-child > div > div:last-child {
+    display: none;
+  }
 `;
 
 const StyledBorder = styled(motion.div)`
@@ -58,7 +61,7 @@ const StyledSubText = styled.div`
   z-index: 5;
 `;
 
-const Service = ({ icon, text, subText = "", link }) => {
+const Service = ({ icon, text, subText = '', link }) => {
   return (
     <NavLink to={link}>
       <StyledService

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter, Route, useLocation, useHistory } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  useLocation,
+  useHistory
+} from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Home from './Pages/Home';
@@ -20,14 +25,15 @@ function App() {
   const location = useLocation();
   const history = useHistory();
   let [logoDisplayed, setLogoDisplayed] = useState(true);
-console.log(location.pathname);
+  console.log(location.pathname);
   useEffect(() => {
     setLogoDisplayed(location.pathname !== '/');
   }, [location]);
 
   return (
-    <BrowserRouter>
-      <Header displayLogo={logoDisplayed} />
+    <AnimatePresence exitBeforeEnter initial={false}>
+      <BrowserRouter>
+        <Header displayLogo={logoDisplayed} />
         <StyledContent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -36,7 +42,8 @@ console.log(location.pathname);
           <Route path="/" exact component={Home} />
           <Route path="/services" component={Services} />
         </StyledContent>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AnimatePresence>
   );
 }
 
