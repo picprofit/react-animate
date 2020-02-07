@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const StyledIndex = styled.section`
   & img {
@@ -22,10 +23,18 @@ const StyledLink = styled(NavLink)`
 const Home = () => {
   return (
     <StyledIndex>
-      <StyledLink to="/services">
-        <img src="/assets/icons/x.png" alt="X" />
-        <StyledText>Da Guo</StyledText>
-      </StyledLink>
+      <motion.div
+        initial={{
+          scale: 0
+        }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <StyledLink to="/services">
+          <img src="/assets/icons/x.png" alt="X" />
+          <StyledText>Da Guo</StyledText>
+        </StyledLink>
+      </motion.div>
     </StyledIndex>
   );
 };

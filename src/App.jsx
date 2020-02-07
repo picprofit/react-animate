@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, useLocation, useHistory } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Home from './Pages/Home';
 import Services from './Pages/Services';
 import Header from './components/Header';
 
-const StyledContent = styled.section`
+const StyledContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,8 +18,9 @@ const StyledContent = styled.section`
 
 function App() {
   const location = useLocation();
+  const history = useHistory();
   let [logoDisplayed, setLogoDisplayed] = useState(true);
-
+console.log(location.pathname);
   useEffect(() => {
     setLogoDisplayed(location.pathname !== '/');
   }, [location]);
@@ -26,10 +28,14 @@ function App() {
   return (
     <BrowserRouter>
       <Header displayLogo={logoDisplayed} />
-      <StyledContent>
-        <Route path="/" exact component={Home} />
-        <Route path="/services" component={Services} />
-      </StyledContent>
+        <StyledContent
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Route path="/" exact component={Home} />
+          <Route path="/services" component={Services} />
+        </StyledContent>
     </BrowserRouter>
   );
 }
