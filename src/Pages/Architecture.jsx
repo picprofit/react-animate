@@ -8,24 +8,66 @@ import { ReactComponent as IconA } from '../assets/icons/a.svg';
 const PageWrap = styled.section`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 1000px;
   max-width: 100%;
   & > a {
-  width: 100px;
+    width: 300px;
+    & > div > div:last-child {
+      display: none;
+    }
   }
 `;
 const StyledDocument = styled(Document)`
-  width: 900px;
+  width: 700px;
   max-width: 100%;
   height: 400px;
-  & canvas {
-  max-width: 100%;
-  max-height: 100%;
+  & > div {
+    height: 400px;
   }
+  & canvas {
+    max-width: 100%;
+    max-height: 100%;
+  }
+`;
+
+const StyledPage = styled(Page)`
+  > div {
+    max-height: 100%;
+    max-width: 100%;
+  }
+`;
+
+const StyledPagination = styled.p`
+  text-align: center;
+`;
+
+const StyledButton = styled.button`
+  background: transparent;
+  border: 1px solid #fff;
+  margin: 0 10px;
+  color: #fff;
 `;
 
 const Architecture = () => {
   const [numPages, setNumPages] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const NextPage = () => {
+    return (
+      <StyledButton onClick={e => setPageNumber(pageNumber + 1)}>
+        &gt;&gt;
+      </StyledButton>
+    );
+  };
+  const PrevPage = () => {
+    return (
+      <StyledButton onClick={e => setPageNumber(pageNumber - 1)}>
+        &lt;&lt;
+      </StyledButton>
+    );
+  };
+
   return (
     <PageWrap>
       <Service icon={<IconA />} text="Architecture" link="/services" />
@@ -37,7 +79,12 @@ const Architecture = () => {
         onLoadError={console.error}
         options={{ workerSrc: '/pdf.worker.js' }}
       >
-        <Page pageNumber={numPages} />
+        <StyledPage pageNumber={pageNumber} customTextRenderer={() => {}} />
+        <StyledPagination>
+          {pageNumber > 1 && <PrevPage />}
+          Page {pageNumber} of {numPages}
+          {pageNumber < numPages && <NextPage />}
+        </StyledPagination>
       </StyledDocument>
     </PageWrap>
   );
