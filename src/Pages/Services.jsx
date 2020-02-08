@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { Frame } from 'framer';
 import { motion } from 'framer-motion';
 
+import { ReactComponent as IconA } from '../assets/icons/a.svg';
+import { ReactComponent as IconLambda } from '../assets/icons/lambda.svg';
+import { ReactComponent as IconData } from '../assets/icons/data.svg';
+
 const StyledServices = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +39,7 @@ const StyledService = styled(motion.div)`
   position: relative;
   width: 300px;
   max-width: 100%;
-  & img {
+  & svg {
     height: 110px;
     position: relative;
     z-index: 15;
@@ -68,8 +72,8 @@ const StyledSubText = styled.div`
 // Add staggering effect to the children of the container
 const containerVariants = {
   before: {},
-  after: { transition: { staggerChildren: 0.06 } },
-}
+  after: { transition: { staggerChildren: 0.06 } }
+};
 
 // Variants for animating each letter
 const letterVariants = {
@@ -77,21 +81,21 @@ const letterVariants = {
     opacity: 0,
     y: 20,
     transition: {
-      type: "spring",
+      type: 'spring',
       damping: 16,
-      stiffness: 200,
-    },
+      stiffness: 200
+    }
   },
   after: {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: 'spring',
       damping: 16,
-      stiffness: 200,
-    },
-  },
-}
+      stiffness: 200
+    }
+  }
+};
 
 const Service = ({ icon, text, subText = '', link }) => {
   const textString = Array.from(text);
@@ -104,35 +108,29 @@ const Service = ({ icon, text, subText = '', link }) => {
         animate={{ scale: 1 }}
         transition={{ duration: 1 }}
       >
-        <img
-          src={`/assets/icons/${icon}`}
-          alt={text}
-        />
-
-
-          <StyledText
-            center={ "y" }
-            height={ 26 }
-            width={ "100%" }
-            background={ "" }
-            variants={ containerVariants }
-            initial={ "before" }
-            animate={ "after" }
-          >
-            {textString.map((letter, index) => (
-              <Frame
-                key={ index }
-                width={ "auto" } // Set the width to the width of the letter
-                height={ 26 } // Set the height to the height of the text
-                background={ "" }
-                style={{ position: "relative", minWidth: "10px" }} // Position elements
-                variants={ letterVariants }
-              >
-                {letter}
-              </Frame>
-            ))}
-          </StyledText>
-
+        {icon}
+        <StyledText
+          center={'y'}
+          height={26}
+          width={'100%'}
+          background={''}
+          variants={containerVariants}
+          initial={'before'}
+          animate={'after'}
+        >
+          {textString.map((letter, index) => (
+            <Frame
+              key={index}
+              width={'auto'} // Set the width to the width of the letter
+              height={26} // Set the height to the height of the text
+              background={''}
+              style={{ position: 'relative', minWidth: '10px' }} // Position elements
+              variants={letterVariants}
+            >
+              {letter}
+            </Frame>
+          ))}
+        </StyledText>
 
         {subText.length > 0 && <StyledSubText>{subText}</StyledSubText>}
         <StyledBorder
@@ -152,9 +150,9 @@ const Service = ({ icon, text, subText = '', link }) => {
 const Services = () => {
   return (
     <StyledServices>
-      <Service icon="a.png" text="Architecture" link="/" />
-      <Service icon="a.png" text="Software Development" link="/" />
-      <Service icon="a.png" text="Data science" subText="Upcoming" link="/" />
+      <Service icon={<IconA />} text="Architecture" link="/" />
+      <Service icon={<IconLambda />} text="Software Development" link="/" />
+      <Service icon={<IconData />} text="Data science" subText="Upcoming" link="/" />
     </StyledServices>
   );
 };
