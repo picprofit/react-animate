@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import Home from './Pages/Home';
 import Services from './Pages/Services';
+import Architecture from './Pages/Architecture';
 import Header from './components/Header';
 
 const StyledContent = styled(motion.div)`
@@ -41,6 +42,7 @@ function App() {
         >
           <Route path="/" exact component={Home} />
           <Route path="/services" component={Services} />
+          <Route path="/architecture" component={Architecture} />
         </StyledContent>
       </BrowserRouter>
     </AnimatePresence>
