@@ -18,7 +18,7 @@ const StyledContent = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 200px);
+  min-height: 100vh;
   width: 100%;
 `;
 
@@ -34,7 +34,6 @@ function App() {
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
       <BrowserRouter>
-        <Header displayLogo={logoDisplayed} />
         <StyledContent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
