@@ -24,20 +24,18 @@ const StyledDocumentWrap = styled.section`
   border: 1px solid #eee;
   width: 100%;
   min-width: 700px;
-  height: 80vh;
-  min-height: 500px;
+  height: 600px;
 `;
 
 const StyledDocument = styled(Document)`
   width: 100%;
   min-width: 700px;
-  height: 80vh;
-  min-height: 500px;
+  height: 600px;
   transition: opacity 1s;
   opacity: ${props => (props.isloading ? 0 : 1)};
   overflow-y: scroll;
   & > div {
-    height: 80vh;
+    height: 70vh;
     min-height: 500px;
   }
   & canvas {
