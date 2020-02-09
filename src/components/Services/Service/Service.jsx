@@ -54,34 +54,6 @@ const StyledSubText = styled.div`
   z-index: 5;
 `;
 
-// Variants for animating each letter
-const letterVariants = {
-  before: {
-    opacity: 0,
-    y: 20,
-    transition: {
-      type: 'spring',
-      damping: 16,
-      stiffness: 200
-    }
-  },
-  after: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      damping: 16,
-      stiffness: 200
-    }
-  }
-};
-
-// Add staggering effect to the children of the container
-const containerVariants = {
-  before: {},
-  after: { transition: { staggerChildren: 0.06 } }
-};
-
 const Service = ({ icon, text, subText = '', link }) => {
   const [isHover, setHover] = useState(false);
 

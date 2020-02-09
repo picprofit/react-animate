@@ -23,19 +23,20 @@ const StyledText = styled.h1`
   text-decoration: none;
 `;
 
-const Preloader = ({children}) => {
-  const [logoMoved, setLogoMoved] = useState(true);
-
-  const StyledLogo = styled(NavLink)`
+const StyledLogo = styled(NavLink)`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     & img {
-      width: ${logoMoved ? '100px' : '50px'};
+      width: ${props => props.logomoved ? "100px" : "50px"}
     }
   `;
+
+
+const Preloader = ({children}) => {
+  const [logoMoved, setLogoMoved] = useState(true);
 
   useEffect(() => {
     if (logoMoved) {
@@ -43,7 +44,7 @@ const Preloader = ({children}) => {
         setLogoMoved(false);
       }, 1500);
     }
-  }, []);
+  }, [logoMoved]);
 
   const spring = {
     type: 'spring',
@@ -70,7 +71,7 @@ const Preloader = ({children}) => {
         }
         positionTransition={spring}
       >
-        <StyledLogo to="/">
+        <StyledLogo to="/" logomoved={logoMoved ? 1 : 0}>
           <img src="/assets/icons/x.png" alt="X" />
           <StyledText>Da Guo</StyledText>
         </StyledLogo>
