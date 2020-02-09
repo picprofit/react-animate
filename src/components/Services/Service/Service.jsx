@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { Frame } from 'framer';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Frame } from 'framer';
 import { motion } from 'framer-motion';
 
 const StyledBorder = styled(motion.div)`
@@ -83,9 +83,20 @@ const containerVariants = {
 };
 
 const Service = ({ icon, text, subText = '', link }) => {
-  if(typeof text === 'undefined') {
+  const [isHover, setHover] = useState(false);
+
+  useEffect(() => {
+    if(isHover) {
+      setTimeout(() => {
+        setHover(false);
+      }, 1000);
+    }
+  }, [isHover]);
+
+  if (typeof text === 'undefined') {
     return null;
   }
+
   const textString = Array.from(text);
   return (
     <NavLink to={link}>
@@ -95,6 +106,12 @@ const Service = ({ icon, text, subText = '', link }) => {
         }}
         animate={{ scale: 1 }}
         transition={{ duration: 1 }}
+        onHoverStart={() => {
+          setHover(true);
+        }}
+        onHoverEnd={() => {
+          // setHover(false);
+        }}
       >
         {icon}
         <StyledText
@@ -102,9 +119,11 @@ const Service = ({ icon, text, subText = '', link }) => {
           height={26}
           width={'100%'}
           background={''}
-          variants={containerVariants}
-          initial={'before'}
-          animate={'after'}
+          initial={{
+            opacity: 0
+          }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
         >
           {textString.map((letter, index) => (
             <Frame
@@ -113,7 +132,15 @@ const Service = ({ icon, text, subText = '', link }) => {
               height={26} // Set the height to the height of the text
               background={''}
               style={{ position: 'relative', minWidth: '10px' }} // Position elements
-              variants={letterVariants}
+              animate={{
+                y: isHover ? -10 : 0,
+                transition: {
+                  type: 'spring',
+                  damping: 16,
+                  stiffness: 200,
+                  delay: 0.03 * index
+                }
+              }}
             >
               {letter}
             </Frame>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import styled from 'styled-components';
+import { Frame } from 'framer';
+import { motion } from 'framer-motion';
 
 import Service from '../components/Services/Service';
 import { ReactComponent as IconA } from '../assets/icons/a.svg';
@@ -79,7 +81,15 @@ const Architecture = () => {
         onLoadError={console.error}
         options={{ workerSrc: '/pdf.worker.js' }}
       >
-        <StyledPage pageNumber={pageNumber} customTextRenderer={() => {}} />
+        <StyledPage
+          pageNumber={pageNumber}
+          customTextRenderer={() => {}}
+          initial={{
+            scale: 0
+          }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1 }}
+        />
         <StyledPagination>
           {pageNumber > 1 && <PrevPage />}
           Page {pageNumber} of {numPages}
