@@ -89,7 +89,7 @@ const Service = ({ icon, text, subText = '', link }) => {
     if(isHover) {
       setTimeout(() => {
         setHover(false);
-      }, 1000);
+      }, 700);
     }
   }, [isHover]);
 

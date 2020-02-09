@@ -1,23 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { ReactComponent as IconLambda } from '../../assets/icons/lambda.svg';
+
 const StyledHeader = styled.header`
 display: flex;
-justify-content: flex-end;
+justify-content: flex-start;
 align-items: center;
 padding: 0 50px;
 height: 100px;
-& img {
+& svg {
 width: 25px;
 height: auto;
+filter: brightness(0) invert(1);
 }
 `;
 
 const Header = ({ displayLogo }) => {
   return (
     <StyledHeader>
-      { displayLogo && <img src="/assets/icons/lambda.png" alt="Logo" /> }
-      <img src="/assets/icons/square.png" alt="menu" />
+      <IconLambda />
     </StyledHeader>
   );
 };
