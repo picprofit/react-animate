@@ -77,9 +77,10 @@ const Preloader = ({children}) => {
       </motion.div>
       <motion.div
         initial={{
-          scale: 0
+          scale: 0,
+          height: 0,
         }}
-        animate={{ scale: 1 }}
+        animate={{ scale: 1, height: 'auto' }}
         transition={{ duration: 1.5, delay: 1.5 }}
       >
         {children}

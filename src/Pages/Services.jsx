@@ -11,7 +11,7 @@ const Services = () => {
     <ServicesWrap>
       <>
         <Service icon={<IconA />} text="Architecture" link="/architecture" />
-        <Service icon={<IconLambda />} text="Software Development" link="/" />
+        <Service icon={<IconLambda />} text="Software Development" link="/services" />
         <Service
           icon={<IconData />}
           text="Data science"

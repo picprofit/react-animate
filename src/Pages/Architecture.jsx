@@ -21,11 +21,13 @@ const PageWrap = styled.section`
   }
 `;
 const StyledDocument = styled(Document)`
-  width: 700px;
-  max-width: 100%;
-  height: 400px;
+  width: 100%;
+  min-width: 700px;
+    height: 80vh;
+    min-height: 500px;
   & > div {
-    height: 400px;
+    height: 80vh;
+    min-height: 500px;
   }
   & canvas {
     max-width: 100%;
@@ -42,13 +44,14 @@ const StyledPage = styled(Page)`
 
 const StyledPagination = styled.p`
   text-align: center;
+  color: #000;
 `;
 
 const StyledButton = styled.button`
   background: transparent;
-  border: 1px solid #fff;
+  border: 1px solid #000;
   margin: 0 10px;
-  color: #fff;
+  color: #000;
 `;
 
 const Architecture = () => {
@@ -72,7 +75,6 @@ const Architecture = () => {
 
   return (
     <PageWrap>
-      <Service icon={<IconA />} text="Architecture" link="/services" />
       <StyledDocument
         file="/assets/portfolio.pdf"
         onLoadSuccess={({ numPages }) => {
