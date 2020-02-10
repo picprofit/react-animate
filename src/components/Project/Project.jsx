@@ -152,7 +152,7 @@ const Project = ({ title, description, fullDescription }) => {
         style={customStyles}
         closeTimeoutMS={700}
       >
-        <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>
+        {modalOpen && <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>}
         <StyledModalContent>
           <h2>{title}</h2>
           <div>{parse(fullDescription)}</div>
