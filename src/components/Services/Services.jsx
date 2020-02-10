@@ -6,7 +6,7 @@ const StyledServices = styled.section`
   flex-wrap: wrap;
   justify-content: space-around;
   width: 1000px;
-  max-width: 100%;
+  max-width: 100vw;
 `;
 
 const Services = ({ children }) => {

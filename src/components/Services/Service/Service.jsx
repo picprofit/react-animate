@@ -12,6 +12,9 @@ const StyledBorder = styled(motion.div)`
   position: absolute;
   top: -60px;
   right: 0;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const StyledService = styled(motion.div)`
@@ -21,6 +24,7 @@ const StyledService = styled(motion.div)`
   position: relative;
   width: 300px;
   max-width: 100%;
+  margin: 50px 0;
   & svg {
     height: 110px;
     position: relative;
