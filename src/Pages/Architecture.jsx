@@ -24,13 +24,15 @@ const StyledDocumentWrap = styled.section`
   border: 1px solid #eee;
   width: 100%;
   min-width: 700px;
-  height: 600px;
+  height: 792px;
+  max-height: 80vh;
 `;
 
 const StyledDocument = styled(Document)`
   width: 100%;
   min-width: 700px;
-  height: 600px;
+  height: 792px;
+  max-height: 80vh;
   transition: opacity 1s;
   opacity: ${props => (props.isloading ? 0 : 1)};
   overflow-y: scroll;
