@@ -21,6 +21,7 @@ const StyledText = styled.h1`
   font-weight: 300;
   text-align: center;
   text-decoration: none;
+  display: ${props => props.logomoved ? "block" : "none"}
 `;
 
 const StyledLogo = styled(NavLink)`
@@ -73,7 +74,7 @@ const Preloader = ({children}) => {
       >
         <StyledLogo to="/" logomoved={logoMoved ? 1 : 0}>
           <img src="/assets/icons/x.png" alt="X" />
-          <StyledText>Da Guo</StyledText>
+          <StyledText logomoved={logoMoved ? 1 : 0}>Da Guo</StyledText>
         </StyledLogo>
       </motion.div>
       <motion.div
