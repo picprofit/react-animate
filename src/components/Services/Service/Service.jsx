@@ -52,7 +52,7 @@ const StyledSubText = styled.div`
   font-size: 60px;
   position: absolute;
   top: 20px;
-  z-index: 5;
+  z-index: ${props => props.ishover ? 30 : 5};
 `;
 
 const Service = ({ icon, text, subText = '', link = '', border = false }) => {
@@ -121,7 +121,7 @@ const Service = ({ icon, text, subText = '', link = '', border = false }) => {
           ))}
         </StyledText>
 
-        {subText.length > 0 && <StyledSubText>{subText}</StyledSubText>}
+        {subText.length > 0 && <StyledSubText ishover={isHover ? 1 : 0}>{subText}</StyledSubText>}
         {border && (
           <StyledBorder
             initial={{
