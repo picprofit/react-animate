@@ -26,7 +26,6 @@ const Services = () => {
           icon={<IconData />}
           text="Data science"
           subText="Upcoming"
-          link="/"
         />
       </>
     </ServicesWrap>

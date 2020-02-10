@@ -46,7 +46,7 @@ flex-wrap: wrap;
 justify-content: space-between;
 width: 1000px;
 max-width: 100%;
-margin: 30px auto;
+margin: 100px auto 30px;
 `;
 
 const Software = () => {

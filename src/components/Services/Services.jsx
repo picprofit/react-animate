@@ -7,9 +7,6 @@ const StyledServices = styled.section`
   justify-content: space-around;
   width: 1000px;
   max-width: 100%;
-  & > a:last-child > div > div:last-child {
-    display: none;
-  }
 `;
 
 const Services = ({ children }) => {

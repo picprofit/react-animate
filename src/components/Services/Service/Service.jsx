@@ -12,9 +12,6 @@ const StyledBorder = styled(motion.div)`
   position: absolute;
   top: -60px;
   right: 0;
-  & > a:last-child:after {
-    display: none;
-  }
 `;
 
 const StyledService = styled(motion.div)`

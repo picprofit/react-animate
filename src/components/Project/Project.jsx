@@ -20,6 +20,7 @@ const StyledProject = styled(motion.div)`
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
   &:hover {
     box-shadow: 10px 10px 15px -10px rgba(88, 89, 91, 0.45);
   }
@@ -30,17 +31,9 @@ const pixelsToMove = 100;
 const cssVisible = `
   opacity: 1;
   top: 0;
-  height: auto;
-  overflow: auto;
-  margin: auto;
-  padding: auto;
 `;
 const cssHidden = `
   opacity: 0;
-  height: 0;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
 `;
 
 const StyledTitle = styled.h3`
@@ -52,12 +45,11 @@ const StyledTitle = styled.h3`
   ${props =>
     props.ishover
       ? `
-  top: -${pixelsToMove}px;
+    top: -${pixelsToMove}px;
+    position: absolute;
   ${cssHidden}
   `
-      : `
-  ${cssVisible}
-  `}
+      : cssVisible}
 `;
 
 const StyledDescription = styled.div`
@@ -68,11 +60,14 @@ const StyledDescription = styled.div`
   ${props =>
     props.ishover
       ? `
-  ${cssVisible}
-  `
+      ${cssVisible}
+      position: relative;
+      transform: scale(1);
+      `
       : `
-  top: ${pixelsToMove}px;
   ${cssHidden}
+      position: absolute;
+      transform: scale(0);
   `}
 `;
 
