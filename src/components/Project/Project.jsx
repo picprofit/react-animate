@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
 import { motion } from 'framer-motion';
+import Modal from 'react-modal';
 
 const StyledProject = styled(motion.div)`
   background: #fff;
@@ -71,23 +72,93 @@ const StyledDescription = styled.div`
   `}
 `;
 
-const Project = ({ title, description }) => {
+// Modal
+Modal.setAppElement('#root');
+
+const customStyles = {
+  overlay: {
+    zIndex: '30',
+    background: 'rgba(0,0,0,0.7)'
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    padding: '2rem',
+    position: 'fixed',
+    minWidth: '20rem',
+    width: '80%',
+    maxWidth: '60rem',
+    minHeight: '5rem',
+    height: '60vh',
+    maxHeight: '60rem'
+  }
+};
+
+const StyledModalContent = styled.section`
+  color: #58595b;
+  font-size: 22px;
+  font-weight: 500;
+  background: #fff;
+  & h2 {
+    text-align: center;
+  }
+`;
+
+const StyledClose = styled.button`
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 35px;
+  font-weight: 500;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  color: #58595b;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    border-color: #eee;
+  }
+`;
+
+const Project = ({ title, description, fullDescription }) => {
   const [isHover, setHover] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <StyledProject
-      onHoverStart={() => {
-        setHover(true);
-      }}
-      onHoverEnd={() => {
-        setHover(false);
-      }}
-    >
-      <StyledTitle ishover={isHover ? 1 : 0}>{title}</StyledTitle>
-      <StyledDescription ishover={isHover ? 1 : 0}>
-        {parse(description)}
-      </StyledDescription>
-    </StyledProject>
+    <>
+      <StyledProject
+        onHoverStart={() => {
+          setHover(true);
+        }}
+        onHoverEnd={() => {
+          setHover(false);
+        }}
+        onClick={() => setModalOpen(true)}
+      >
+        <StyledTitle ishover={isHover ? 1 : 0}>{title}</StyledTitle>
+        <StyledDescription ishover={isHover ? 1 : 0}>
+          {parse(description)}
+        </StyledDescription>
+      </StyledProject>
+      <Modal
+        isOpen={modalOpen}
+        onAfterOpen={() => {}}
+        onRequestClose={() => setModalOpen(false)}
+        contentLabel={title}
+        style={customStyles}
+        closeTimeoutMS={700}
+      >
+        <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>
+        <StyledModalContent>
+          <h2>{title}</h2>
+          <div>{parse(fullDescription)}</div>
+        </StyledModalContent>
+      </Modal>
+    </>
   );
 };
 
