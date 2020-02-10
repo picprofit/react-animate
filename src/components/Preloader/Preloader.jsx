@@ -67,7 +67,8 @@ const Preloader = ({children}) => {
             : {
               position: 'absolute',
               top: '30px',
-              left: '30px'
+              left: '30px',
+              zIndex: '60'
             }
         }
         positionTransition={spring}

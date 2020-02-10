@@ -8,6 +8,7 @@ const StyledProject = styled(motion.div)`
   background: #fff;
   color: #58595b;
   border: 1px solid #eee;
+  margin-bottom: 10px;
   width: 32%;
   min-width: 300px;
   height: 200px;
@@ -69,7 +70,12 @@ const StyledDescription = styled.div`
   ${cssHidden}
       position: absolute;
       transform: scale(0);
-  `}
+  `};
+  @media (max-width: 768px) {
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+  }
 `;
 
 // Modal
@@ -152,7 +158,9 @@ const Project = ({ title, description, fullDescription }) => {
         style={customStyles}
         closeTimeoutMS={700}
       >
-        {modalOpen && <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>}
+        {modalOpen && (
+          <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>
+        )}
         <StyledModalContent>
           <h2>{title}</h2>
           <div>{parse(fullDescription)}</div>

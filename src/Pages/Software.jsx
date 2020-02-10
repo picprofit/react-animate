@@ -72,18 +72,28 @@ const projects = [
   }
 ];
 
+const StyledWrap = styled.section`
+  margin-top: 30px;
+`;
+
 const StyledProjectsWrap = styled.section`
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-width: 1000px;
-max-width: 100%;
-margin: 100px auto 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+  width: 1000px;
+  max-width: 100vw;
+  margin: 100px auto 30px;
+  @media(max-width: 768px) {
+  margin-top: 20px;
+  }
 `;
 
 const Software = () => {
   return (
-    <>
+    <StyledWrap>
       <ServicesWrap>
         <>
           <Service icon={<IconLambda />} text="Software Development" />
@@ -92,11 +102,16 @@ const Software = () => {
       <StyledProjectsWrap>
         {projects.map(item => {
           return (
-            <Project key={item.title} title={item.title} description={item.shortDescription} fullDescription={item.fullDescription} />
+            <Project
+              key={item.title}
+              title={item.title}
+              description={item.shortDescription}
+              fullDescription={item.fullDescription}
+            />
           );
         })}
       </StyledProjectsWrap>
-    </>
+    </StyledWrap>
   );
 };
 
