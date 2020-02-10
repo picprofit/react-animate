@@ -10,7 +10,7 @@ const PageWrap = styled.section`
   flex-wrap: wrap;
   align-items: center;
   width: 1000px;
-  max-width: 100%;
+  max-width: 100vw;
   position: relative;
   & > a {
     width: 300px;
@@ -18,36 +18,58 @@ const PageWrap = styled.section`
       display: none;
     }
   }
+  @media (max-width: 768px) {
+    padding-top: 90px;
+  }
 `;
 
 const StyledDocumentWrap = styled.section`
   border: 1px solid #eee;
   width: 100%;
-  min-width: 700px;
+  max-width: 100%;
   height: 792px;
+  @media(max-width: 768px) {
+  height: auto;
+  }
   max-height: 80vh;
 `;
 
 const StyledDocument = styled(Document)`
   width: 100%;
-  min-width: 700px;
+  max-width: 100%;
   height: 792px;
   max-height: 80vh;
+  @media(max-width: 768px) {
+    height: auto;
+  }
   transition: opacity 1s;
   opacity: ${props => (props.isloading ? 0 : 1)};
   overflow-y: scroll;
+  @media (max-width: 768px) {
+    overflow: scroll;
+  }
   & > div {
-    height: 70vh;
+    height: 80vh;
     min-height: 500px;
+    @media (max-width: 768px) {
+      max-height: 77vh;
+    }
+    @media (max-width: 768px) {
+      height: auto;
+      min-height: 0;
+    }
   }
   & canvas {
     max-width: 100%;
+    @media(max-width: 768px) {
+      height: auto !important;
+    }
   }
 `;
 
 const StyledPagination = styled.div`
   width: 100%;
-  min-width: 700px;
+  max-width: 100%;
   text-align: center;
   color: #000;
   margin-top: 20px;
