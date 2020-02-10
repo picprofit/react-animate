@@ -54,24 +54,25 @@ const StyledSubText = styled.div`
   z-index: 5;
 `;
 
-const Service = ({ icon, text, subText = '', link }) => {
-  const [isHover, setHover] = useState(false);
-
-  useEffect(() => {
-    if(isHover) {
-      setTimeout(() => {
-        setHover(false);
-      }, 700);
-    }
-  }, [isHover]);
-
-  if (typeof text === 'undefined') {
-    return null;
-  }
-
+const Service = ({ icon, text, subText = '', link = '', border = false }) => {
   const textString = Array.from(text);
-  return (
-    <NavLink to={link}>
+
+  const ServiceResult = () => {
+    const [isHover, setHover] = useState(false);
+
+    useEffect(() => {
+      if (isHover) {
+        setTimeout(() => {
+          setHover(false);
+        }, 700);
+      }
+    }, [isHover]);
+
+    if (typeof text === 'undefined') {
+      return null;
+    }
+
+    return (
       <StyledService
         initial={{
           scale: 0
@@ -120,17 +121,27 @@ const Service = ({ icon, text, subText = '', link }) => {
         </StyledText>
 
         {subText.length > 0 && <StyledSubText>{subText}</StyledSubText>}
-        <StyledBorder
-          initial={{
-            opacity: 0,
-            rotate: -180
-          }}
-          animate={{ opacity: 1, rotate: 25 }}
-          transition={{ duration: 1 }}
-          transformTemplate={`rotate(25deg)`}
-        />
+        {border && (
+          <StyledBorder
+            initial={{
+              opacity: 0,
+              rotate: -180
+            }}
+            animate={{ opacity: 1, rotate: 25 }}
+            transition={{ duration: 1 }}
+            transformTemplate={`rotate(25deg)`}
+          />
+        )}
       </StyledService>
+    );
+  };
+
+  return link.length > 0 ? (
+    <NavLink to={link}>
+      <ServiceResult />
     </NavLink>
+  ) : (
+    <ServiceResult />
   );
 };
 

@@ -61,7 +61,7 @@ const StyledButton = styled(motion.button)`
 const StyledIcon = styled(IconArchitecture)`
   position: absolute;
   top: 30px;
-  left: 30px;
+  left: -70px;
   width: 30px;
   height: auto;
   z-index: 20;

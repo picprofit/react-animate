@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Home from './Pages/Home';
 import Services from './Pages/Services';
 import Architecture from './Pages/Architecture';
+import Software from './Pages/Software';
 import Preloader from './components/Preloader';
 
 const StyledContent = styled(motion.div)`
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/services" component={Services} />
             <Route path="/architecture" component={Architecture} />
+            <Route path="/software" component={Software} />
           </Preloader>
         </StyledContent>
       </BrowserRouter>
