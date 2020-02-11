@@ -38,6 +38,21 @@ const StyledService = styled(motion.div)`
     position: relative;
     z-index: 15;
   }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #d3d3d3;
+    z-index: 11;
+    @media (min-width: 768px) {
+      -webkit-transform: skew(-25deg);
+      -moz-transform: skew(-25deg);
+      -o-transform: skew(-25deg);
+    }
+  }
 `;
 
 const StyledText = styled(Frame)`
@@ -115,18 +130,18 @@ const Service = ({
         }}
         css={css}
       >
-        {icon}
+        {(isHover || !parentHover) && icon}
         <StyledText
           center={'y'}
           height={26}
           width={'100%'}
           background={''}
-          ishover={parentHover ? 1 : 0}
+          ishover={isHover ? 1 : 0}
           initial={{
-            opacity: parentHover ? 0 : 1
+            opacity: 0
           }}
           animate={{
-            opacity: parentHover ? 1 : 0
+            opacity: isHover ? 1 : 0
           }}
           exit={{
             opacity: 0
@@ -143,7 +158,9 @@ const Service = ({
             {upcomingText}
           </StyledSubText>
         )}
-        {border && <StyledBorder transformTemplate={`rotate(25deg)`} />}
+        {border && !parentHover && (
+          <StyledBorder transformTemplate={`rotate(25deg)`} />
+        )}
         {background && (
           <StyledBackground
             ishover={parentHover && !isHover ? 1 : 0}

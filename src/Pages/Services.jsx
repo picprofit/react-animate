@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
+
 
 import Service from '../components/Service';
 import { ReactComponent as IconA } from '../assets/icons/a.svg';
@@ -14,7 +16,7 @@ const ServicesWrap = styled(motion.div)`
   justify-content: space-around;
   ${pageWidth};
   & > * {
-    width: 33.3%;
+    width: 33.333%;
     min-width: 333px;
   }
 `;
@@ -35,6 +37,7 @@ const Services = () => {
         setHover(false);
       }}>
       <>
+        {isHover && <Helmet bodyAttributes={{style: 'background-color : rgba(0,0,0,0.6)'}}/>}
         <Service
           icon={<IconA />}
           text="Architecture"

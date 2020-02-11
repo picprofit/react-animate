@@ -8,7 +8,7 @@ const showMenuIfCursorMovedRightInPixels = document.body.clientWidth > 768 ? 200
 export { showMenuIfCursorMovedRightInPixels };
 
 const pageWidth = `
-  width: 70vw;
+  width: 80vw;
   max-width: 100vw;
   @media(min-width: 1100px) {
     min-width: 1000px;

@@ -16,6 +16,9 @@ const StyledHeader = styled.header`
     width: 25px;
     height: auto;
     filter: brightness(0) invert(1); // to white color
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
   button {
     background: transparent;
