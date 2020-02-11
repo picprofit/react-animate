@@ -26,7 +26,7 @@ const ServicesBg = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all 0.6s ease-in;
+    transition: all 1.2s ease-in;
     background-position: center center;
     opacity: ${props => (props.ishover ? 1 : 0)};
     transform: skew(-25deg);
