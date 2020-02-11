@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-
 import Service from '../components/Service';
 import { ReactComponent as IconA } from '../assets/icons/a.svg';
 import { ReactComponent as IconLambda } from '../assets/icons/lambda.svg';

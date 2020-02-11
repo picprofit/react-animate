@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Helmet from 'react-helmet';
 
 import { ReactComponent as IconArchitecture } from '../assets/icons/a.svg';
 import { pdfLink, pageWidth } from '../config';
@@ -149,6 +150,9 @@ const Architecture = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
+      <Helmet>
+        <title>Da Guo: Architecture</title>
+      </Helmet>
       <PageWrap>
         <StyledIcon />
         <StyledDocumentWrap>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Helmet from 'react-helmet';
 
 import Service from '../components/Service';
 import Project from '../components/Project';
@@ -30,6 +31,9 @@ const StyledProjectsWrap = styled.section`
 const Software = () => {
   return (
     <>
+      <Helmet>
+        <title>Da Guo: Software</title>
+      </Helmet>
       <ServicesWrap>
         <Service icon={<IconLambda />} text="Software Development" />
       </ServicesWrap>
