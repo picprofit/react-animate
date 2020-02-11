@@ -40,7 +40,7 @@ const StyledService = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all 0.6s ease-in;
+    transition: all 1s ease-in;
     background: ${props => (props.ishover ? '#d3d3d3' : 'transparent')};
     z-index: 11;
     @media (min-width: 768px) {
@@ -86,7 +86,7 @@ const StyledSubText = styled.div`
   text-transform: uppercase;
   font-size: 60px;
   position: absolute;
-  transition: all 0.8s;
+  transition: all 1s;
   transition-delay: 0.3s;
   z-index: 12;
   opacity: ${props => (props.ishover ? 1 : 0)};
@@ -95,7 +95,7 @@ const StyledSubText = styled.div`
 const StyledBackground = styled(motion.div)`
   position: absolute;
   z-index: 12;
-  transition: all 0.6s ease-in;
+  transition: all 0.8s ease-in;
   top: 0;
   left: 0;
   width: 100%;
@@ -148,7 +148,7 @@ const Service = ({
             exit={{
               scale: 0.3
             }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1.2 }}
           >
             {icon}
           </StyledIcon>
