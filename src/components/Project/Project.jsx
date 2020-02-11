@@ -142,9 +142,9 @@ const StyledImage = styled.img`
   object-fit: cover;
   height: auto;
   @media (max-width: 768px) {
-  width: 100%;
-  height: 300px;
-  margin-bottom: 30px;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -153,8 +153,8 @@ const StyledContent = styled.section`
   padding-left: 30px;
   box-sizing: border-box;
   @media (max-width: 768px) {
-  width: 100%;
-  padding: 0;
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -166,9 +166,13 @@ const StyledTagsWrap = styled.div`
 `;
 
 const StyledTag = styled.div`
-  font-weight: 700;
-  color: #000;
+  font-weight: 300;
+    font-size: 18px;
   margin-right: 10px;
+  background: #929292;
+  padding: 0 10px 4px;
+  border-radius: 3px;
+  color: #fff;
 `;
 
 const Project = ({ title, description, fullDescription, image, tags }) => {
@@ -208,7 +212,7 @@ const Project = ({ title, description, fullDescription, image, tags }) => {
             <h2>{title}</h2>
             <StyledTagsWrap>
               {tags.map(item => {
-                return <StyledTag key={item}>#{item}</StyledTag>;
+                return <StyledTag key={item}>{item}</StyledTag>;
               })}
             </StyledTagsWrap>
             <div>{parse(fullDescription)}</div>
