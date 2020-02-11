@@ -33,11 +33,6 @@ const StyledService = styled(motion.div)`
   margin: 0;
   box-sizing: border-box;
   ${props => (props.css.length > 0 ? props.css : '')};
-  & svg {
-    height: 100px;
-    position: relative;
-    z-index: 15;
-  }
   &:after {
     content: '';
     position: absolute;
@@ -52,6 +47,14 @@ const StyledService = styled(motion.div)`
       -moz-transform: skew(-25deg);
       -o-transform: skew(-25deg);
     }
+  }
+`;
+
+const StyledIcon = styled(motion.div)`
+    z-index: 15;
+  & svg {
+    height: 100px;
+    position: relative;
   }
 `;
 
@@ -132,7 +135,22 @@ const Service = ({
         }}
         css={css}
       >
-        {(isHover || !parentHover) && icon}
+        {(isHover || !parentHover) && (
+          <StyledIcon
+            initial={{
+              scale: parentHover ? 0.3 : 1
+            }}
+            animate={{
+              scale: 1
+            }}
+            exit={{
+              scale: 0.3
+            }}
+            transition={{ duration: 1 }}
+          >
+            {icon}
+          </StyledIcon>
+        )}
         <StyledText
           center={'y'}
           height={26}
