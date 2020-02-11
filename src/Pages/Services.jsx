@@ -15,17 +15,20 @@ const Services = () => {
           text="Architecture"
           link="/architecture"
           border={true}
+          background={true}
         />
         <Service
           icon={<IconLambda />}
           text="Software Development"
           link="/software"
           border={true}
+          background={true}
         />
         <Service
           icon={<IconData />}
           text="Data science"
           disabled={true}
+          background={true}
         />
       </>
     </ServicesWrap>

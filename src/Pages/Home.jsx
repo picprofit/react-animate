@@ -15,7 +15,7 @@ const StyledButton = styled(NavLink)`
   display: block;
   width: 300px;
   padding: 10px 20px;
-  margin: 30px auto;
+  margin: 100px auto 0;
 `;
 
 const Home = () => {

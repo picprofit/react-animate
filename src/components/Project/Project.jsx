@@ -128,6 +128,7 @@ const StyledModalContent = styled.section`
   display: flex;
   align-items: stretch;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-top: 30px;
   & h2 {
     text-align: center;
@@ -140,12 +141,21 @@ const StyledImage = styled.img`
   width: 50%;
   object-fit: cover;
   height: auto;
+  @media (max-width: 768px) {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 30px;
+  }
 `;
 
 const StyledContent = styled.section`
   width: 50%;
   padding-left: 30px;
   box-sizing: border-box;
+  @media (max-width: 768px) {
+  width: 100%;
+  padding: 0;
+  }
 `;
 
 const StyledTagsWrap = styled.div`

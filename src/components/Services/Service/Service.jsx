@@ -8,12 +8,13 @@ import { upcomingText } from '../../../config';
 
 const StyledBorder = styled(motion.div)`
   display: block;
-  height: 250px;
+  height: 270px;
   width: 1px;
-  background: #000;
+  background: #fff;
   position: absolute;
-  top: -60px;
+  top: -10px;
   right: 0;
+  z-index: 30;
   @media (max-width: 768px) {
     display: none;
   }
@@ -24,9 +25,12 @@ const StyledService = styled(motion.div)`
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 300px;
+  width: 333px;
+  height: 250px;
   max-width: 100%;
-  margin: 50px 0;
+  margin: 0;
+  padding: 60px 0;
+  box-sizing: border-box;
   & svg {
     height: 110px;
     position: relative;
@@ -46,7 +50,7 @@ const StyledText = styled(Frame)`
   top: 40px;
   z-index: 20;
   transition: all 0.8s;
-  opacity: ${props => props.ishover ? 1 : 0};
+  opacity: ${props => (props.ishover ? 1 : 0)};
 `;
 
 const StyledSubText = styled.div`
@@ -55,13 +59,33 @@ const StyledSubText = styled.div`
   text-transform: uppercase;
   font-size: 60px;
   position: absolute;
-  top: 20px;
   transition: all 0.8s;
   transition-delay: 0.3s;
-  opacity: ${props => props.ishover ? 1 : 0};
+  opacity: ${props => (props.ishover ? 1 : 0)};
 `;
 
-const Service = ({ icon, text, link = '', disabled = false, border = false }) => {
+const StyledBackground = styled.div`
+  position: absolute;
+  z-index: 12;
+  transition: all 0.8s ease-in;
+  background: ${props => (props.ishover ? 'rgba(0,0,0,0.2)' : '#000')};
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: skew(-25deg);
+  -moz-transform: skew(-25deg);
+  -o-transform: skew(-25deg);
+`;
+
+const Service = ({
+  icon,
+  text,
+  link = '',
+  disabled = false,
+  border = false,
+  background = false
+}) => {
   const textString = Array.from(text);
 
   const ServiceResult = () => {
@@ -94,13 +118,15 @@ const Service = ({ icon, text, link = '', disabled = false, border = false }) =>
           ishover={isHover ? 1 : 0}
         >
           {textString.map((letter, index) => (
-            <span key={`${letter}${index}`}>
-              {letter}
-            </span>
+            <span key={`${letter}${index}`}>{letter}</span>
           ))}
         </StyledText>
 
-        {disabled && <StyledSubText ishover={isHover ? 1 : 0}>{upcomingText}</StyledSubText>}
+        {disabled && (
+          <StyledSubText ishover={isHover ? 1 : 0}>
+            {upcomingText}
+          </StyledSubText>
+        )}
         {border && (
           <StyledBorder
             initial={{
@@ -112,6 +138,7 @@ const Service = ({ icon, text, link = '', disabled = false, border = false }) =>
             transformTemplate={`rotate(25deg)`}
           />
         )}
+        {background && <StyledBackground ishover={isHover ? 1 : 0} />}
       </StyledService>
     );
   };
