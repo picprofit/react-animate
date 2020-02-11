@@ -104,24 +104,14 @@ const customStyles = {
   }
 };
 
-const StyledModalContent = styled.section`
-  color: #58595b;
-  font-size: 22px;
-  font-weight: 500;
-  background: #fff;
-  & h2 {
-    text-align: center;
-  }
-`;
-
 const StyledClose = styled.button`
   background: transparent;
   border: 1px solid transparent;
   font-size: 35px;
   font-weight: 500;
   position: fixed;
-  top: 30px;
-  right: 30px;
+  top: 15px;
+  right: 15px;
   color: #58595b;
   cursor: pointer;
   transition: all 0.2s;
@@ -130,7 +120,48 @@ const StyledClose = styled.button`
   }
 `;
 
-const Project = ({ title, description, fullDescription }) => {
+const StyledModalContent = styled.section`
+  color: #58595b;
+  font-size: 22px;
+  font-weight: 500;
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding-top: 30px;
+  & h2 {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+  }
+`;
+
+const StyledImage = styled.img`
+  width: 50%;
+  object-fit: cover;
+  height: auto;
+`;
+
+const StyledContent = styled.section`
+  width: 50%;
+  padding-left: 30px;
+  box-sizing: border-box;
+`;
+
+const StyledTagsWrap = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+`;
+
+const StyledTag = styled.div`
+  font-weight: 700;
+  color: #000;
+  margin-right: 10px;
+`;
+
+const Project = ({ title, description, fullDescription, image, tags }) => {
   const [isHover, setHover] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -162,8 +193,16 @@ const Project = ({ title, description, fullDescription }) => {
           <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>
         )}
         <StyledModalContent>
-          <h2>{title}</h2>
-          <div>{parse(fullDescription)}</div>
+          <StyledImage src={`/assets/images/${image}`} />
+          <StyledContent>
+            <h2>{title}</h2>
+            <StyledTagsWrap>
+              {tags.map(item => {
+                return <StyledTag key={item}>#{item}</StyledTag>;
+              })}
+            </StyledTagsWrap>
+            <div>{parse(fullDescription)}</div>
+          </StyledContent>
         </StyledModalContent>
       </Modal>
     </>

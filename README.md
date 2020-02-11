@@ -28,8 +28,5 @@ Displayed file is /public/assets/portfolio.pdf
 
 **/software**
 
-Displayed projects are hardcoded in src/Pages/Software.jsx,
-because in descriptions could be tags and it's easier to create texts there,
-than in .json file.
-
+Displayed projects are stored in **src/config.js**
 (this behaviour can be changed to use external .json file, or some api)

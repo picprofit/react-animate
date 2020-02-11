@@ -49,6 +49,12 @@ const StyledDocument = styled(Document)`
   @media (max-width: 768px) {
     overflow: scroll;
   }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+  display: none;
+  }
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
   & > div {
     height: 80vh;
     min-height: 500px;

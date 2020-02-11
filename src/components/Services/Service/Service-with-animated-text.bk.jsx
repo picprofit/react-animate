@@ -45,8 +45,6 @@ const StyledText = styled(Frame)`
   position: absolute;
   top: 40px;
   z-index: 20;
-  transition: all 0.8s;
-  opacity: ${props => props.ishover ? 1 : 0};
 `;
 
 const StyledSubText = styled.div`
@@ -56,9 +54,7 @@ const StyledSubText = styled.div`
   font-size: 60px;
   position: absolute;
   top: 20px;
-  transition: all 0.8s;
-  transition-delay: 0.3s;
-  opacity: ${props => props.ishover ? 1 : 0};
+  z-index: ${props => props.ishover ? 30 : 5};
 `;
 
 const Service = ({ icon, text, link = '', disabled = false, border = false }) => {
@@ -66,6 +62,14 @@ const Service = ({ icon, text, link = '', disabled = false, border = false }) =>
 
   const ServiceResult = () => {
     const [isHover, setHover] = useState(false);
+
+    useEffect(() => {
+      if (isHover) {
+        setTimeout(() => {
+          setHover(false);
+        }, 700);
+      }
+    }, [isHover]);
 
     if (typeof text === 'undefined') {
       return null;
@@ -82,7 +86,7 @@ const Service = ({ icon, text, link = '', disabled = false, border = false }) =>
           setHover(true);
         }}
         onHoverEnd={() => {
-          setHover(false);
+          // setHover(false);
         }}
       >
         {icon}
@@ -91,12 +95,31 @@ const Service = ({ icon, text, link = '', disabled = false, border = false }) =>
           height={26}
           width={'100%'}
           background={''}
-          ishover={isHover ? 1 : 0}
+          initial={{
+            opacity: 0
+          }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
         >
           {textString.map((letter, index) => (
-            <span key={`${letter}${index}`}>
+            <Frame
+              key={index}
+              width={'auto'} // Set the width to the width of the letter
+              height={26} // Set the height to the height of the text
+              background={''}
+              style={{ position: 'relative', minWidth: '10px' }} // Position elements
+              animate={{
+                y: isHover ? -10 : 0,
+                transition: {
+                  type: 'spring',
+                  damping: 16,
+                  stiffness: 200,
+                  delay: 0.03 * index
+                }
+              }}
+            >
               {letter}
-            </span>
+            </Frame>
           ))}
         </StyledText>
 
