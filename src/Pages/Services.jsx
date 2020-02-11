@@ -6,13 +6,17 @@ import Service from '../components/Service';
 import { ReactComponent as IconA } from '../assets/icons/a.svg';
 import { ReactComponent as IconLambda } from '../assets/icons/lambda.svg';
 import { ReactComponent as IconData } from '../assets/icons/data.svg';
+import { pageWidth } from '../config';
 
 const ServicesWrap = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 1000px;
-  max-width: 100vw;
+  ${pageWidth};
+  & > * {
+    width: 33.3%;
+    min-width: 333px;
+  }
 `;
 
 const Services = () => {

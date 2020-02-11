@@ -7,6 +7,13 @@ export { pdfLink };
 const showMenuIfCursorMovedRightInPixels = 200;
 export { showMenuIfCursorMovedRightInPixels };
 
+const pageWidth = `
+  width: 70vw;
+  min-width: 1000px;
+  max-width: 100vw;
+`;
+export { pageWidth };
+
 const projects = [
   {
     title: '.CANs',

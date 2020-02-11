@@ -25,7 +25,7 @@ const StyledService = styled(motion.div)`
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 333px;
+  min-width: 333px;
   max-width: 100%;
   margin: 0;
   box-sizing: border-box;

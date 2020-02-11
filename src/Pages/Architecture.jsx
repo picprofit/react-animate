@@ -4,14 +4,13 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { ReactComponent as IconArchitecture } from '../assets/icons/a.svg';
-import { pdfLink } from '../config';
+import { pdfLink, pageWidth } from '../config';
 
 const PageWrap = styled.section`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  width: 1000px;
-  max-width: 100vw;
+  ${pageWidth};
   position: relative;
   & > a {
     width: 300px;
