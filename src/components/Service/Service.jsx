@@ -88,6 +88,7 @@ const StyledSubText = styled.div`
   position: absolute;
   transition: all 0.8s;
   transition-delay: 0.3s;
+  z-index: 12;
   opacity: ${props => (props.ishover ? 1 : 0)};
 `;
 
