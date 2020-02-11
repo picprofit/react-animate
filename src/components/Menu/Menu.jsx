@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
+import { ReactComponent as LogoIcon } from '../../assets/icons/logo.svg';
 
 const StyledMenu = styled(motion.div)`
   color: #000;
@@ -38,13 +39,14 @@ const StyledMenu = styled(motion.div)`
     margin: 0;
   }
   button {
-  width: 25px;
-  margin: 0 auto 30px;
-  background: transparent;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 30px;
+    background: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -62,7 +64,7 @@ const Menu = ({ menuVisible, setMenuVisible }) => {
       isVisible={menuVisible}
     >
       <button onClick={() => setMenuVisible(false)}>
-        <MenuIcon />
+        <LogoIcon />
       </button>
       <NavLink to="/">Main</NavLink>
       <NavLink to="/architecture">Architecture</NavLink>

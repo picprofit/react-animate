@@ -26,11 +26,10 @@ const StyledService = styled(motion.div)`
   justify-content: center;
   position: relative;
   width: 333px;
-  height: 250px;
   max-width: 100%;
   margin: 0;
-  padding: 60px 0;
   box-sizing: border-box;
+  ${props => props.css.length > 0 ? props.css : ""};
   & svg {
     height: 110px;
     position: relative;
@@ -86,7 +85,8 @@ const Service = ({
   link = '',
   disabled = false,
   border = false,
-  background = false
+  background = false,
+  css = ''
 }) => {
   const textString = Array.from(text);
 
@@ -110,6 +110,7 @@ const Service = ({
         onHoverEnd={() => {
           setHover(false);
         }}
+        css={css}
       >
         {icon}
         <StyledText

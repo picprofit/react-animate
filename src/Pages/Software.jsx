@@ -17,7 +17,7 @@ const StyledProjectsWrap = styled.section`
   }
   width: 1000px;
   max-width: 100vw;
-  margin: 0 auto;
+  margin: 30px auto;
   @media (max-width: 768px) {
     margin-top: 20px;
   }
