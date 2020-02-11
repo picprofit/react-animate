@@ -26,7 +26,7 @@ const ServicesBg = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all 1s ease-in;
+    transition: all 1.2s ease-in;
     background-position: center center;
     opacity: ${props => (props.ishover ? 1 : 0)};
     transform: skew(-25deg);
@@ -64,7 +64,7 @@ const Services = () => {
       <>
         {isHover && (
           <Helmet
-            bodyAttributes={{ style: 'background-color : rgba(0,0,0,0.6)' }}
+            bodyAttributes={{ style: 'background-color: #7C7C7C' }}
           />
         )}
         <Service
