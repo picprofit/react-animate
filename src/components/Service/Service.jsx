@@ -27,6 +27,9 @@ const StyledService = styled(motion.div)`
   position: relative;
   min-width: 333px;
   max-width: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   margin: 0;
   box-sizing: border-box;
   ${props => (props.css.length > 0 ? props.css : '')};
@@ -51,6 +54,9 @@ const StyledText = styled(Frame)`
   transition: all 0.8s;
   width: 20px;
   opacity: ${props => (props.ishover ? 1 : 0)};
+  @media (max-width: 768px) {
+    opacity: 1 !important;
+  }
 `;
 
 const StyledSubText = styled.div`
@@ -117,7 +123,7 @@ const Service = ({
           background={''}
           ishover={parentHover ? 1 : 0}
           initial={{
-            opacity: 0
+            opacity: parentHover ? 0 : 1
           }}
           animate={{
             opacity: parentHover ? 1 : 0
@@ -142,7 +148,7 @@ const Service = ({
           <StyledBackground
             ishover={parentHover && !isHover ? 1 : 0}
             initial={{
-              background: 'transparent'
+              background: parentHover && !isHover ? 'transparent' : '#000'
             }}
             animate={{
               background: parentHover && !isHover ? '#000' : 'transparent'

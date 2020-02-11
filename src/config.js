@@ -4,13 +4,18 @@ export { upcomingText };
 const pdfLink = '/assets/portfolio.pdf'; // path from 'public' directory
 export { pdfLink };
 
-const showMenuIfCursorMovedRightInPixels = 200;
+const showMenuIfCursorMovedRightInPixels = document.body.clientWidth > 768 ? 200 : 30;
 export { showMenuIfCursorMovedRightInPixels };
 
 const pageWidth = `
   width: 70vw;
-  min-width: 1000px;
   max-width: 100vw;
+  @media(min-width: 1100px) {
+    min-width: 1000px;
+  }
+  @media (max-width: 1100px) {
+    width: 100vw;
+  }
 `;
 export { pageWidth };
 
