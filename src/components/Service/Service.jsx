@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Frame } from 'framer';
 import { motion } from 'framer-motion';
 
-import { upcomingText } from '../../../config';
+import { upcomingText } from '../../config';
 
 const StyledBorder = styled(motion.div)`
   display: block;
@@ -29,7 +29,7 @@ const StyledService = styled(motion.div)`
   max-width: 100%;
   margin: 0;
   box-sizing: border-box;
-  ${props => props.css.length > 0 ? props.css : ""};
+  ${props => (props.css.length > 0 ? props.css : '')};
   & svg {
     height: 100px;
     position: relative;
@@ -49,6 +49,7 @@ const StyledText = styled(Frame)`
   top: 40px;
   z-index: 20;
   transition: all 0.8s;
+  width: 20px;
   opacity: ${props => (props.ishover ? 1 : 0)};
 `;
 
@@ -63,7 +64,7 @@ const StyledSubText = styled.div`
   opacity: ${props => (props.ishover ? 1 : 0)};
 `;
 
-const StyledBackground = styled.div`
+const StyledBackground = styled(motion.div)`
   position: absolute;
   z-index: 12;
   transition: all 0.6s ease-in;
@@ -86,6 +87,7 @@ const Service = ({
   disabled = false,
   border = false,
   background = false,
+  parentHover = false,
   css = ''
 }) => {
   const textString = Array.from(text);
@@ -99,11 +101,6 @@ const Service = ({
 
     return (
       <StyledService
-        initial={{
-          scale: 0
-        }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1 }}
         onHoverStart={() => {
           setHover(true);
         }}
@@ -118,7 +115,17 @@ const Service = ({
           height={26}
           width={'100%'}
           background={''}
-          ishover={isHover ? 1 : 0}
+          ishover={parentHover ? 1 : 0}
+          initial={{
+            opacity: 0
+          }}
+          animate={{
+            opacity: parentHover ? 1 : 0
+          }}
+          exit={{
+            opacity: 0
+          }}
+          transition={{ duration: 0.2 }}
         >
           {textString.map((letter, index) => (
             <span key={`${letter}${index}${textString.length}`}>{letter}</span>
@@ -130,18 +137,22 @@ const Service = ({
             {upcomingText}
           </StyledSubText>
         )}
-        {border && (
-          <StyledBorder
+        {border && <StyledBorder transformTemplate={`rotate(25deg)`} />}
+        {background && (
+          <StyledBackground
+            ishover={parentHover && !isHover ? 1 : 0}
             initial={{
-              opacity: 0,
-              rotate: -180
+              background: 'transparent'
             }}
-            animate={{ opacity: 1, rotate: 25 }}
+            animate={{
+              background: parentHover && !isHover ? '#000' : 'transparent'
+            }}
+            exit={{
+              background: 'transparent'
+            }}
             transition={{ duration: 1 }}
-            transformTemplate={`rotate(25deg)`}
           />
         )}
-        {background && <StyledBackground ishover={isHover ? 1 : 0} />}
       </StyledService>
     );
   };

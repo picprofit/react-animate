@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
-import ServicesWrap from '../components/Services';
-import Service from '../components/Services/Service';
+import Service from '../components/Service';
 import { ReactComponent as IconA } from '../assets/icons/a.svg';
 import { ReactComponent as IconLambda } from '../assets/icons/lambda.svg';
 import { ReactComponent as IconData } from '../assets/icons/data.svg';
 
+const ServicesWrap = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1000px;
+  max-width: 100vw;
+`;
+
 const Services = () => {
+  const [isHover, setHover] = useState(false);
+
   const serviceCss = `
   padding: 60px 0; 
   height: 230px;
   `;
   return (
-    <ServicesWrap>
+    <ServicesWrap
+      onHoverStart={() => {
+        setHover(true);
+      }}
+      onHoverEnd={() => {
+        setHover(false);
+      }}>
       <>
         <Service
           icon={<IconA />}
@@ -21,6 +38,7 @@ const Services = () => {
           border={true}
           background={true}
           css={serviceCss}
+          parentHover={isHover}
         />
         <Service
           icon={<IconLambda />}
@@ -29,6 +47,7 @@ const Services = () => {
           border={true}
           background={true}
           css={serviceCss}
+          parentHover={isHover}
         />
         <Service
           icon={<IconData />}
@@ -36,6 +55,7 @@ const Services = () => {
           disabled={true}
           background={true}
           css={serviceCss}
+          parentHover={isHover}
         />
       </>
     </ServicesWrap>
