@@ -20,8 +20,7 @@ const pageWidth = `
 `;
 export { pageWidth };
 
-const servicesBgImage =
-  '/assets/images/business-code-coding-computer-270360.jpg';
+const servicesBgImage = false; // '/assets/images/business-code-coding-computer-270360.jpg';
 export { servicesBgImage };
 
 const projects = [

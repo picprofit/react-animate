@@ -39,8 +39,9 @@ const ServicesBg = styled.div`
     width: 120%;
     height: 120%;
     transform: skewX(25deg);
+    background: #000;
     background-size: cover;
-    background-image: url('${servicesBgImage}');
+    ${servicesBgImage.length > 0 && `background-image: url('${servicesBgImage}')`};
   }
 `;
 

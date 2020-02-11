@@ -96,7 +96,6 @@ const StyledBackground = styled(motion.div)`
   position: absolute;
   z-index: 12;
   transition: all 0.6s ease-in;
-  //background: ${props => (props.ishover ? '#000' : 'transparent')};
   top: 0;
   left: 0;
   width: 100%;
@@ -144,7 +143,7 @@ const Service = ({
               scale: parentHover ? 0.3 : 1
             }}
             animate={{
-              scale: 1
+              scale: isHover ? 1.2 : 1
             }}
             exit={{
               scale: 0.3
