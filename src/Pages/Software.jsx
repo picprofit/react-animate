@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+import { useParams } from 'react-router-dom';
 
 import Service from '../components/Service';
 import Project from '../components/Project';
@@ -29,6 +30,7 @@ const StyledProjectsWrap = styled.section`
 `;
 
 const Software = () => {
+  const { id } = useParams();
   return (
     <>
       <Helmet>
@@ -44,7 +46,8 @@ const Software = () => {
             image,
             tags,
             shortDescription,
-            fullDescription
+            fullDescription,
+            link
           } = item;
           return (
             <Project
@@ -54,6 +57,8 @@ const Software = () => {
               tags={tags}
               description={shortDescription}
               fullDescription={fullDescription}
+              link={link}
+              isOpened={id === link}
             />
           );
         })}

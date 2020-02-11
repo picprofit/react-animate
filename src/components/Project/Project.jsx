@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import parse from 'html-react-parser';
 import { motion } from 'framer-motion';
 import Modal from 'react-modal';
+import { useHistory } from 'react-router-dom';
 
 const StyledProject = styled(motion.div)`
   background: #fff;
@@ -169,15 +170,27 @@ const StyledTag = styled.div`
   font-weight: 300;
     font-size: 18px;
   margin-right: 10px;
+  margin-top: 10px;
   background: #929292;
   padding: 0 10px 4px;
   border-radius: 3px;
   color: #fff;
 `;
 
-const Project = ({ title, description, fullDescription, image, tags }) => {
+const Project = ({ title, description, fullDescription, image, tags, link, isOpened }) => {
   const [isHover, setHover] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(isOpened);
+
+  const history = useHistory();
+
+  const openModal = () => {
+    setModalOpen(true);
+    history.push(`/software/${link}`);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+    history.push(`/software/`);
+  };
 
   return (
     <>
@@ -188,7 +201,7 @@ const Project = ({ title, description, fullDescription, image, tags }) => {
         onHoverEnd={() => {
           setHover(false);
         }}
-        onClick={() => setModalOpen(true)}
+        onClick={openModal}
       >
         <StyledTitle ishover={isHover ? 1 : 0}>{title}</StyledTitle>
         <StyledDescription ishover={isHover ? 1 : 0}>
@@ -198,13 +211,13 @@ const Project = ({ title, description, fullDescription, image, tags }) => {
       <Modal
         isOpen={modalOpen}
         onAfterOpen={() => {}}
-        onRequestClose={() => setModalOpen(false)}
+        onRequestClose={closeModal}
         contentLabel={title}
         style={customStyles}
         closeTimeoutMS={700}
       >
         {modalOpen && (
-          <StyledClose onClick={() => setModalOpen(false)}>&times;</StyledClose>
+          <StyledClose onClick={closeModal}>&times;</StyledClose>
         )}
         <StyledModalContent>
           <StyledImage src={`/assets/images/${image}`} />

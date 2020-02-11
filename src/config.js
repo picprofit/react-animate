@@ -22,6 +22,7 @@ export { pageWidth };
 const projects = [
   {
     title: '.CANs',
+    link: 'cans',
     shortDescription:
       'Lorem ipsum <b>dolor sit amet</b>, consectetur <i>adipisicing elit</i>. Atque culpa, unde.',
     image: 'blur-close-up-code-computer-546819.jpg', // in /public/assets/images
@@ -46,6 +47,7 @@ const projects = [
   },
   {
     title: '_V',
+    link: 'v',
     shortDescription:
       'Aliquid aperiam beatae consectetur <b>culpa cumque debitis</b> eaque eius, <em>enim, fugiat maiores nemo</em>.',
     image: 'business-code-coding-computer-270360.jpg', // in /public/assets/images
@@ -58,6 +60,7 @@ const projects = [
   },
   {
     title: 'TotallyNotVirus',
+    link: 'totallynotvirus',
     shortDescription:
       'A atque eaque <u>excepturi ipsam magni</u> molestias nulla quos, <s>ullam unde vitae</s>. Alias aliquid architecto.',
     image: 'creative-internet-computer-display-2004161.jpg', // in /public/assets/images

@@ -18,6 +18,7 @@ const ServicesWrap = styled(motion.div)`
     width: 33.333%;
     min-width: 333px;
   }
+  //background: image();
 `;
 
 const Services = () => {

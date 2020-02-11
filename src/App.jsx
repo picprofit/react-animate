@@ -33,7 +33,8 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/services" component={Services} />
             <Route path="/architecture" component={Architecture} />
-            <Route path="/software" component={Software} />
+            <Route path="/software" exact component={Software} />
+            <Route path="/software/:id" component={Software} />
           </Preloader>
         </StyledContent>
       </AnimatePresence>
