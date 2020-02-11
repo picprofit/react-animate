@@ -33,8 +33,8 @@ const projects = [
     title: '_V',
     shortDescription:
       'Aliquid aperiam beatae consectetur <b>culpa cumque debitis</b> eaque eius, <em>enim, fugiat maiores nemo</em>.',
-    image: 'blur-close-up-code-computer-546819.jpg', // in /public/assets/images
-    tags: ['project', 'soft', 'blockchain', 'network'],
+    image: 'business-code-coding-computer-270360.jpg', // in /public/assets/images
+    tags: ['blockchain', 'network'],
     fullDescription: `<div> Ducimus eveniet fugiat illum impedit incidunt inventore, iste iusto laboriosam, laudantium, nemo pariatur quis quod repellendus tempora tenetur veniam?</div>
     <div>Ab aperiam consequuntur corporis, eius eligendi eos error excepturi expedita fugit in molestiae porro, quia sunt. A alias delectus explicabo illum odio reiciendis soluta tempora totam vero voluptatum! Fuga, sunt.</div>
     <div>Aliquid aperiam beatae consectetur culpa cumque debitis eaque eius, enim, fugiat maiores nemo non nostrum quasi repudiandae, totam vel velit voluptatum! Corporis dolor hic laborum nam, quae veritatis voluptatem. Est?</div>
@@ -45,8 +45,8 @@ const projects = [
     title: 'TotallyNotVirus',
     shortDescription:
       'A atque eaque <u>excepturi ipsam magni</u> molestias nulla quos, <s>ullam unde vitae</s>. Alias aliquid architecto.',
-    image: 'blur-close-up-code-computer-546819.jpg', // in /public/assets/images
-    tags: ['project', 'soft', 'blockchain', 'network'],
+    image: 'creative-internet-computer-display-2004161.jpg', // in /public/assets/images
+    tags: ['project', 'soft', 'virus', 'antivirus', 'totally', 'not', 'heal', 'cure', 'other tags'],
     fullDescription: `<div> Ducimus eveniet fugiat illum impedit incidunt inventore, iste iusto laboriosam, laudantium, nemo pariatur quis quod repellendus tempora tenetur veniam?</div>
     <div>Ab aperiam consequuntur corporis, eius eligendi eos error excepturi expedita fugit in molestiae porro, quia sunt. A alias delectus explicabo illum odio reiciendis soluta tempora totam vero voluptatum! Fuga, sunt.</div>
     <div>Aliquid aperiam beatae consectetur culpa cumque debitis eaque eius, enim, fugiat maiores nemo non nostrum quasi repudiandae, totam vel velit voluptatum! Corporis dolor hic laborum nam, quae veritatis voluptatem. Est?</div>
