@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { ReactComponent as IconArchitecture } from '../assets/icons/a.svg';
+import { pdfLink } from '../config';
 
 const PageWrap = styled.section`
   display: flex;
@@ -146,7 +147,7 @@ const Architecture = () => {
         <StyledIcon />
         <StyledDocumentWrap>
           <StyledDocument
-            file="/assets/portfolio.pdf" // from public/assets
+            file={pdfLink}
             onLoadSuccess={({ numPages }) => {
               setNumPages(numPages);
             }}

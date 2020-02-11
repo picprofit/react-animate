@@ -18,6 +18,10 @@ Creates a production build which you can upload to server
 
 ##Notes:
 
+**Configuration**
+
+Variables like **path to pdf** or **Upcoming** text stored in **src/config.js** 
+
 **/architecture**
 
 Displayed file is /public/assets/portfolio.pdf

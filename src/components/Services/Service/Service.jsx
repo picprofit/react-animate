@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Frame } from 'framer';
 import { motion } from 'framer-motion';
 
+import { upcomingText } from '../../../config';
+
 const StyledBorder = styled(motion.div)`
   display: block;
   height: 250px;
@@ -55,7 +57,7 @@ const StyledSubText = styled.div`
   z-index: ${props => props.ishover ? 30 : 5};
 `;
 
-const Service = ({ icon, text, subText = '', link = '', border = false }) => {
+const Service = ({ icon, text, link = '', disabled = false, border = false }) => {
   const textString = Array.from(text);
 
   const ServiceResult = () => {
@@ -121,7 +123,7 @@ const Service = ({ icon, text, subText = '', link = '', border = false }) => {
           ))}
         </StyledText>
 
-        {subText.length > 0 && <StyledSubText ishover={isHover ? 1 : 0}>{subText}</StyledSubText>}
+        {disabled && <StyledSubText ishover={isHover ? 1 : 0}>{upcomingText}</StyledSubText>}
         {border && (
           <StyledBorder
             initial={{

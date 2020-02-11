@@ -25,7 +25,7 @@ const Services = () => {
         <Service
           icon={<IconData />}
           text="Data science"
-          subText="Upcoming"
+          disabled={true}
         />
       </>
     </ServicesWrap>
