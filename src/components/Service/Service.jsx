@@ -165,7 +165,7 @@ const Service = ({
           <StyledBackground
             ishover={parentHover && !isHover ? 1 : 0}
             initial={{
-              background: parentHover && !isHover ? 'transparent' : '#000'
+              background: !isHover ? 'transparent' : '#000'
             }}
             animate={{
               background: parentHover && !isHover ? '#000' : 'transparent'
