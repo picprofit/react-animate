@@ -118,7 +118,7 @@ const Service = ({
           ishover={isHover ? 1 : 0}
         >
           {textString.map((letter, index) => (
-            <span key={`${letter}${index}`}>{letter}</span>
+            <span key={`${letter}${index}${textString.length}`}>{letter}</span>
           ))}
         </StyledText>
 
