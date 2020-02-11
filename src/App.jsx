@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,7 +9,6 @@ import Architecture from './Pages/Architecture';
 import Software from './Pages/Software';
 import Preloader from './components/Preloader';
 import Header from './components/Header';
-import Menu from './components/Menu';
 
 const StyledContent = styled(motion.div)`
   display: flex;

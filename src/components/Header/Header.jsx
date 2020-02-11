@@ -29,21 +29,14 @@ const Header = () => {
   const MoveListener = e => {
     const cursorX = e.pageX;
     const width = document.body.clientWidth;
-    console.log(width, cursorX);
     if (!menuVisible && cursorX > width - showMenuIfCursorMovedRightInPixels) {
       setMenuVisible(true);
-      console.log('show');
     } else if (cursorX < width - showMenuIfCursorMovedRightInPixels) {
       setMenuVisible(false);
-      console.log('hide');
     }
   };
-  // setTimeout(() => {
+
   document.getElementById('root').addEventListener('mousemove', MoveListener);
-  // document
-  //   .getElementById('root')
-  //   .removeEventListener('mousemove', MoveListener);
-  // }, 1000);
 
   return (
     <>

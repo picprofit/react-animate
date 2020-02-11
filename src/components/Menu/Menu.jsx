@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
+// import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
 import { ReactComponent as LogoIcon } from '../../assets/icons/logo.svg';
 
 const StyledMenu = styled(motion.div)`

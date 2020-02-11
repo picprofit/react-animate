@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Frame } from 'framer';
 import { motion } from 'framer-motion';

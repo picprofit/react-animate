@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';

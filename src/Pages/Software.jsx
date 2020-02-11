@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 import ServicesWrap from '../components/Services/Services';
 import Service from '../components/Services/Service';
