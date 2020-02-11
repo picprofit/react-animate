@@ -7,7 +7,7 @@ import Service from '../components/Service';
 import { ReactComponent as IconA } from '../assets/icons/a.svg';
 import { ReactComponent as IconLambda } from '../assets/icons/lambda.svg';
 import { ReactComponent as IconData } from '../assets/icons/data.svg';
-import { pageWidth } from '../config';
+import { pageWidth, servicesBgImage } from '../config';
 
 const ServicesWrap = styled(motion.div)`
   display: flex;
@@ -18,7 +18,30 @@ const ServicesWrap = styled(motion.div)`
     width: 33.333%;
     min-width: 333px;
   }
-  //background: image();
+  position: relative;
+`;
+const ServicesBg = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s ease-in;
+    background-position: center center;
+    opacity: ${props => (props.ishover ? 1 : 0)};
+    transform: skew(-25deg);
+    overflow: hidden;
+  &:after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    transform: skewX(25deg);
+    background-size: cover;
+    background-image: url('${servicesBgImage}');
+  }
 `;
 
 const Services = () => {
@@ -35,9 +58,14 @@ const Services = () => {
       }}
       onHoverEnd={() => {
         setHover(false);
-      }}>
+      }}
+    >
       <>
-        {isHover && <Helmet bodyAttributes={{style: 'background-color : rgba(0,0,0,0.6)'}}/>}
+        {isHover && (
+          <Helmet
+            bodyAttributes={{ style: 'background-color : rgba(0,0,0,0.6)' }}
+          />
+        )}
         <Service
           icon={<IconA />}
           text="Architecture"
@@ -65,6 +93,7 @@ const Services = () => {
           parentHover={isHover}
         />
       </>
+      <ServicesBg ishover={isHover} />
     </ServicesWrap>
   );
 };

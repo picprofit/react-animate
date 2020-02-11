@@ -4,7 +4,8 @@ export { upcomingText };
 const pdfLink = '/assets/portfolio.pdf'; // path from 'public' directory
 export { pdfLink };
 
-const showMenuIfCursorMovedRightInPixels = document.body.clientWidth > 768 ? 200 : 30;
+const showMenuIfCursorMovedRightInPixels =
+  document.body.clientWidth > 768 ? 200 : 30;
 export { showMenuIfCursorMovedRightInPixels };
 
 const pageWidth = `
@@ -18,6 +19,10 @@ const pageWidth = `
   }
 `;
 export { pageWidth };
+
+const servicesBgImage =
+  '/assets/images/business-code-coding-computer-270360.jpg';
+export { servicesBgImage };
 
 const projects = [
   {

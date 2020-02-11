@@ -40,7 +40,8 @@ const StyledService = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: #d3d3d3;
+    transition: all 0.6s ease-in;
+    background: ${props => (props.ishover ? '#d3d3d3' : 'transparent')};
     z-index: 11;
     @media (min-width: 768px) {
       -webkit-transform: skew(-25deg);
@@ -51,7 +52,7 @@ const StyledService = styled(motion.div)`
 `;
 
 const StyledIcon = styled(motion.div)`
-    z-index: 15;
+  z-index: 15;
   & svg {
     height: 100px;
     position: relative;
@@ -94,7 +95,7 @@ const StyledBackground = styled(motion.div)`
   position: absolute;
   z-index: 12;
   transition: all 0.6s ease-in;
-  background: ${props => (props.ishover ? '#000' : 'transparent')};
+  //background: ${props => (props.ishover ? '#000' : 'transparent')};
   top: 0;
   left: 0;
   width: 100%;
@@ -134,6 +135,7 @@ const Service = ({
           setHover(false);
         }}
         css={css}
+        ishover={isHover}
       >
         {(isHover || !parentHover) && (
           <StyledIcon
@@ -184,15 +186,15 @@ const Service = ({
         {background && (
           <StyledBackground
             ishover={parentHover && !isHover ? 1 : 0}
-            initial={{
-              background: !isHover ? 'transparent' : '#000'
-            }}
-            animate={{
-              background: parentHover && !isHover ? '#000' : 'transparent'
-            }}
-            exit={{
-              background: 'transparent'
-            }}
+            // initial={{
+            //   background: !isHover ? 'transparent' : '#000'
+            // }}
+            // animate={{
+            //   background: parentHover && !isHover ? '#000' : 'transparent'
+            // }}
+            // exit={{
+            //   background: 'transparent'
+            // }}
             transition={{ duration: 1 }}
           />
         )}
