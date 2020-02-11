@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   & svg {
     width: 25px;
     height: auto;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1); // to white color
   }
 `;
 

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 
+import { ReactComponent as IconLogo } from '../../assets/icons/logo.svg';
+
 const StyledIndex = styled.section`
   min-height: 80vh;
   width: 100%;
@@ -21,7 +23,7 @@ const StyledText = styled.h1`
   font-weight: 300;
   text-align: center;
   text-decoration: none;
-  display: ${props => props.logomoved ? "block" : "none"}
+  display: ${props => props.logomoved ? "block" : "none"};
 `;
 
 const StyledLogo = styled(NavLink)`
@@ -30,8 +32,9 @@ const StyledLogo = styled(NavLink)`
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    & img {
-      width: ${props => props.logomoved ? "100px" : "50px"}
+    & svg {
+      filter: brightness(0) invert(1);
+      width: ${props => props.logomoved ? "100px" : "50px"};
     }
   `;
 
@@ -74,7 +77,7 @@ const Preloader = ({children}) => {
         positionTransition={spring}
       >
         <StyledLogo to="/" logomoved={logoMoved ? 1 : 0}>
-          <img src="/assets/icons/x.png" alt="X" />
+          <IconLogo />
           <StyledText logomoved={logoMoved ? 1 : 0}>Da Guo</StyledText>
         </StyledLogo>
       </motion.div>
