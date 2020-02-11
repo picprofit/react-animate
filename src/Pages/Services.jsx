@@ -9,7 +9,7 @@ import { ReactComponent as IconData } from '../assets/icons/data.svg';
 const Services = () => {
   const serviceCss = `
   padding: 60px 0; 
-  height: 250px;
+  height: 230px;
   `;
   return (
     <ServicesWrap>

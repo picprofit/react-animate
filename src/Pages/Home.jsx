@@ -15,14 +15,14 @@ const StyledButton = styled(NavLink)`
   display: block;
   width: 300px;
   padding: 10px 20px;
-  margin: 100px auto 0;
+  margin: 30px auto 0;
 `;
 
 const Home = () => {
   return (
     <>
       <Services />
-      <StyledButton to="/">See my CV</StyledButton>
+      <StyledButton to="/">See my cv</StyledButton>
     </>
   );
 };

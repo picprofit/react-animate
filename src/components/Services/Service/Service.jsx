@@ -8,9 +8,9 @@ import { upcomingText } from '../../../config';
 
 const StyledBorder = styled(motion.div)`
   display: block;
-  height: 270px;
+  height: 250px;
   width: 1px;
-  background: #fff;
+  background: #58595b;
   position: absolute;
   top: -10px;
   right: 0;
@@ -31,7 +31,7 @@ const StyledService = styled(motion.div)`
   box-sizing: border-box;
   ${props => props.css.length > 0 ? props.css : ""};
   & svg {
-    height: 110px;
+    height: 100px;
     position: relative;
     z-index: 15;
   }
@@ -66,8 +66,8 @@ const StyledSubText = styled.div`
 const StyledBackground = styled.div`
   position: absolute;
   z-index: 12;
-  transition: all 0.8s ease-in;
-  background: ${props => (props.ishover ? 'rgba(0,0,0,0.2)' : '#000')};
+  transition: all 0.6s ease-in;
+  background: ${props => (props.ishover ? '#000' : 'transparent')};
   top: 0;
   left: 0;
   width: 100%;

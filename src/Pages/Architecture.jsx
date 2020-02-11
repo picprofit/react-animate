@@ -68,6 +68,7 @@ const StyledDocument = styled(Document)`
   }
   & canvas {
     max-width: 100%;
+    height: auto !important;
     @media(max-width: 768px) {
       height: auto !important;
     }
