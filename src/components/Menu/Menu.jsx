@@ -5,17 +5,19 @@ import { motion } from 'framer-motion';
 
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
 
-const StyledMenu = styled.section`
+const StyledMenu = styled(motion.div)`
   color: #000;
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 100%;
-  position: absolute;
-  right: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 30px 20px;
+  right: 0;
+  width: 0;
+  position: absolute;
+  z-index: 50;
+  overflow: hidden;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: ${props => (props.isVisible ? '30px 20px' : '30px 0')};
   box-sizing: border-box;
   > a {
     display: block;
@@ -27,45 +29,46 @@ const StyledMenu = styled.section`
     font-weight: 500;
     text-decoration: none;
     border: 0;
+    white-space: nowrap;
   }
   svg {
     width: 25px;
     height: auto;
     filter: brightness(0) invert(1); // to white color
+    margin: 0;
   }
   button {
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 30px;
+  width: 25px;
+  margin: 0 auto 30px;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
 `;
 
 const Menu = ({ menuVisible, setMenuVisible }) => {
-  return menuVisible ? (
-    <motion.div
+  return (
+    <StyledMenu
       initial={{
-        opacity: 0
+        width: '0'
       }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      exit={{ opacity: 0 }}
+      animate={{
+        width: menuVisible ? '200px' : 0
+      }}
+      transition={{ duration: 1 }}
+      exit={{ width: '0' }}
+      isVisible={menuVisible}
     >
-      <StyledMenu>
-        <button onClick={() => setMenuVisible(false)}>
-          <MenuIcon />
-        </button>
-        <NavLink to="/">Main</NavLink>
-        <NavLink to="/architecture">Architecture</NavLink>
-        <NavLink to="/software">Software Development</NavLink>
-      </StyledMenu>
-    </motion.div>
-  ) : null;
+      <button onClick={() => setMenuVisible(false)}>
+        <MenuIcon />
+      </button>
+      <NavLink to="/">Main</NavLink>
+      <NavLink to="/architecture">Architecture</NavLink>
+      <NavLink to="/software">Software Development</NavLink>
+    </StyledMenu>
+  );
 };
 
 export default Menu;

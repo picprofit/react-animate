@@ -22,25 +22,23 @@ const StyledContent = styled(motion.div)`
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <AnimatePresence exitBeforeEnter initial={false}>
-        <BrowserRouter>
-          <StyledContent
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Preloader>
-              <Route path="/" exact component={Home} />
-              <Route path="/services" component={Services} />
-              <Route path="/architecture" component={Architecture} />
-              <Route path="/software" component={Software} />
-            </Preloader>
-          </StyledContent>
-        </BrowserRouter>
+        <StyledContent
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Preloader>
+            <Route path="/" exact component={Home} />
+            <Route path="/services" component={Services} />
+            <Route path="/architecture" component={Architecture} />
+            <Route path="/software" component={Software} />
+          </Preloader>
+        </StyledContent>
       </AnimatePresence>
-    </>
+    </BrowserRouter>
   );
 }
 

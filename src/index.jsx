@@ -6,8 +6,8 @@ import './assets/styles/style.scss';
 import App from './App';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Route component={App} />
-  </BrowserRouter>,
+    <BrowserRouter>
+      <Route component={App} />
+    </BrowserRouter>,
   document.getElementById('root')
 );

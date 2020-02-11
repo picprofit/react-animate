@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
 import Menu from '../Menu';
+import { showMenuIfCursorMovedRightInPixels } from '../../config';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -25,10 +26,24 @@ const StyledHeader = styled.header`
 
 const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
-
-  const _onMouseMove = e => {
-    console.log({ x: e.screenX, y: e.screenY });
+  const MoveListener = e => {
+    const cursorX = e.pageX;
+    const width = document.body.clientWidth;
+    console.log(width, cursorX);
+    if (!menuVisible && cursorX > width - showMenuIfCursorMovedRightInPixels) {
+      setMenuVisible(true);
+      console.log('show');
+    } else if (cursorX < width - showMenuIfCursorMovedRightInPixels) {
+      setMenuVisible(false);
+      console.log('hide');
+    }
   };
+  // setTimeout(() => {
+  document.getElementById('root').addEventListener('mousemove', MoveListener);
+  // document
+  //   .getElementById('root')
+  //   .removeEventListener('mousemove', MoveListener);
+  // }, 1000);
 
   return (
     <>

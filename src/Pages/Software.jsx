@@ -8,10 +8,6 @@ import Project from '../components/Project';
 import { ReactComponent as IconLambda } from '../assets/icons/lambda.svg';
 import { projects } from '../config';
 
-const StyledWrap = styled.section`
-  margin-top: 30px;
-`;
-
 const StyledProjectsWrap = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +17,7 @@ const StyledProjectsWrap = styled.section`
   }
   width: 1000px;
   max-width: 100vw;
-  margin: 100px auto 30px;
+  margin: 0 auto;
   @media (max-width: 768px) {
     margin-top: 20px;
   }
@@ -29,15 +25,19 @@ const StyledProjectsWrap = styled.section`
 
 const Software = () => {
   return (
-    <StyledWrap>
+    <>
       <ServicesWrap>
-        <>
-          <Service icon={<IconLambda />} text="Software Development" />
-        </>
+        <Service icon={<IconLambda />} text="Software Development" />
       </ServicesWrap>
       <StyledProjectsWrap>
         {projects.map(item => {
-          const { title, image, tags, shortDescription, fullDescription} = item;
+          const {
+            title,
+            image,
+            tags,
+            shortDescription,
+            fullDescription
+          } = item;
           return (
             <Project
               key={title}
@@ -50,7 +50,7 @@ const Software = () => {
           );
         })}
       </StyledProjectsWrap>
-    </StyledWrap>
+    </>
   );
 };
 

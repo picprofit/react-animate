@@ -73,9 +73,11 @@ const StyledBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: skew(-25deg);
-  -moz-transform: skew(-25deg);
-  -o-transform: skew(-25deg);
+  @media (min-width: 768px) {
+    -webkit-transform: skew(-25deg);
+    -moz-transform: skew(-25deg);
+    -o-transform: skew(-25deg);
+  }
 `;
 
 const Service = ({

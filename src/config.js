@@ -4,6 +4,9 @@ export { upcomingText };
 const pdfLink = '/assets/portfolio.pdf'; // path from 'public' directory
 export { pdfLink };
 
+const showMenuIfCursorMovedRightInPixels = 200;
+export { showMenuIfCursorMovedRightInPixels };
+
 const projects = [
   {
     title: '.CANs',
@@ -46,7 +49,17 @@ const projects = [
     shortDescription:
       'A atque eaque <u>excepturi ipsam magni</u> molestias nulla quos, <s>ullam unde vitae</s>. Alias aliquid architecto.',
     image: 'creative-internet-computer-display-2004161.jpg', // in /public/assets/images
-    tags: ['project', 'soft', 'virus', 'antivirus', 'totally', 'not', 'heal', 'cure', 'other tags'],
+    tags: [
+      'project',
+      'soft',
+      'virus',
+      'antivirus',
+      'totally',
+      'not',
+      'heal',
+      'cure',
+      'other tags'
+    ],
     fullDescription: `<div> Ducimus eveniet fugiat illum impedit incidunt inventore, iste iusto laboriosam, laudantium, nemo pariatur quis quod repellendus tempora tenetur veniam?</div>
     <div>Ab aperiam consequuntur corporis, eius eligendi eos error excepturi expedita fugit in molestiae porro, quia sunt. A alias delectus explicabo illum odio reiciendis soluta tempora totam vero voluptatum! Fuga, sunt.</div>
     <div>Aliquid aperiam beatae consectetur culpa cumque debitis eaque eius, enim, fugiat maiores nemo non nostrum quasi repudiandae, totam vel velit voluptatum! Corporis dolor hic laborum nam, quae veritatis voluptatem. Est?</div>
