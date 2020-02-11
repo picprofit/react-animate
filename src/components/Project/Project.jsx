@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 
+import Share from '../Share';
+
 const StyledProject = styled(motion.div)`
   background: #fff;
   color: #58595b;
@@ -151,8 +153,9 @@ const StyledImage = styled.img`
 
 const StyledContent = styled.section`
   width: 50%;
-  padding-left: 30px;
+  padding-left: 40px;
   box-sizing: border-box;
+  position: relative;
   @media (max-width: 768px) {
     width: 100%;
     padding: 0;
@@ -168,7 +171,7 @@ const StyledTagsWrap = styled.div`
 
 const StyledTag = styled.div`
   font-weight: 300;
-    font-size: 18px;
+  font-size: 18px;
   margin-right: 10px;
   margin-top: 10px;
   background: #929292;
@@ -177,7 +180,16 @@ const StyledTag = styled.div`
   color: #fff;
 `;
 
-const Project = ({ title, description, fullDescription, image, tags, link, isOpened }) => {
+
+const Project = ({
+  title,
+  description,
+  fullDescription,
+  image,
+  tags,
+  link,
+  isOpened
+}) => {
   const [isHover, setHover] = useState(false);
   const [modalOpen, setModalOpen] = useState(isOpened);
 
@@ -216,9 +228,7 @@ const Project = ({ title, description, fullDescription, image, tags, link, isOpe
         style={customStyles}
         closeTimeoutMS={700}
       >
-        {modalOpen && (
-          <StyledClose onClick={closeModal}>&times;</StyledClose>
-        )}
+        {modalOpen && <StyledClose onClick={closeModal}>&times;</StyledClose>}
         <StyledModalContent>
           <StyledImage src={`/assets/images/${image}`} />
           <StyledContent>
@@ -229,6 +239,7 @@ const Project = ({ title, description, fullDescription, image, tags, link, isOpe
               })}
             </StyledTagsWrap>
             <div>{parse(fullDescription)}</div>
+            <Share title={title} />
           </StyledContent>
         </StyledModalContent>
       </Modal>
