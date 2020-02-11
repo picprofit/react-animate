@@ -11,11 +11,10 @@ import {
 } from 'react-share';
 
 const StyledShared = styled.section`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
+  > button {
+  margin-top: 10px;
+  margin-right: 10px;
+  }
 `;
 
 
