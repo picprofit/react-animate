@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import Helmet from 'react-helmet';
 
 import Services from './Services';
 
@@ -21,6 +22,9 @@ const StyledButton = styled(NavLink)`
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Da Guo</title>
+      </Helmet>
       <Services />
       <StyledButton to="/">See my cv</StyledButton>
     </>
