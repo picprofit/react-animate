@@ -67,10 +67,12 @@ const StyledText = styled(Frame)`
   top: 40px;
   z-index: 20;
   transition: all 0.8s;
-  width: 20px;
   opacity: ${props => (props.ishover ? 1 : 0)};
   @media (max-width: 768px) {
     opacity: 1 !important;
+  }
+  > span {
+    min-width: 5px;
   }
 `;
 
