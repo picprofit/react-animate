@@ -123,6 +123,17 @@ const StyledClose = styled.button`
   }
 `;
 
+const StyledModal = styled(Modal)`
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+  display: none;
+  }
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+  background: #fff;
+`;
+
 const StyledModalContent = styled.section`
   color: #58595b;
   font-size: 22px;
@@ -175,8 +186,8 @@ const StyledTag = styled.div`
   margin-right: 10px;
   margin-top: 10px;
   background: #929292;
-  padding: 0 10px 4px;
-  border-radius: 3px;
+    padding: 0 15px 2px;
+    border-radius: 20px;
   color: #fff;
 `;
 
@@ -220,7 +231,7 @@ const Project = ({
           {parse(description)}
         </StyledDescription>
       </StyledProject>
-      <Modal
+      <StyledModal
         isOpen={modalOpen}
         onAfterOpen={() => {}}
         onRequestClose={closeModal}
@@ -242,7 +253,7 @@ const Project = ({
             <Share title={title} />
           </StyledContent>
         </StyledModalContent>
-      </Modal>
+      </StyledModal>
     </>
   );
 };
