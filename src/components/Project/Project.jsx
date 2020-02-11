@@ -212,7 +212,9 @@ const Project = ({
   };
   const closeModal = () => {
     setModalOpen(false);
-    history.push(`/software/`);
+    setTimeout(() => {
+      history.push(`/software/`);
+    }, 1000);
   };
 
   return (
