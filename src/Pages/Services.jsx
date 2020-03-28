@@ -62,11 +62,6 @@ const Services = () => {
       }}
     >
       <>
-        {isHover && (
-          <Helmet
-            bodyAttributes={{ style: 'background-color: #7C7C7C' }}
-          />
-        )}
         <Service
           icon={<IconA />}
           text="Architecture"

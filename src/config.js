@@ -20,7 +20,7 @@ const pageWidth = `
 `;
 export { pageWidth };
 
-const servicesBgImage = false; // '/assets/images/business-code-coding-computer-270360.jpg';
+const servicesBgImage = '/assets/images/black-and-gray-motherboard-2582937.jpg';
 export { servicesBgImage };
 
 const projects = [
