@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Da Guo</title>
+        <title>Animated portfolio</title>
       </Helmet>
       <Services />
       <StyledButton to="/">See my cv</StyledButton>
