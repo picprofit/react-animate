@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Animated portfolio
+[Online demo](https://react-animate-2.now.sh/)
+[First version](https://react-animate.now.sh/)
+
+Online portfolio. 
+The goal was to create this with a lot of stunned animations (from the client's point of view)
+
+I used styled components and react transitions to implement changes.
+
+
 ## Usage
 
 In the project directory:
